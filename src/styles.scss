@@ -1,0 +1,706 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+$RobotoFontFamily: "Roboto", sans-serif;
+$BoxShadowEffect: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+$transitionEffect: all 0.5s ease;
+$BlackColor: #000000;
+$mainBackgroundColor: #edf5ff;
+$headingColor: #0099d6;
+$fontColor: #6f6f6f;
+
+@mixin coloredButtons {
+  background: linear-gradient(-45deg, $headingColor, #a485fd);
+  cursor: pointer;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+  width: auto;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  border: solid 2px transparent;
+  transition: $transitionEffect;
+  &:hover {
+    transition: $transitionEffect;
+    border: solid 2px $headingColor;
+    background: transparent;
+    color: $headingColor;
+  }
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+@mixin headingColor {
+  padding-bottom: 15px;
+  font-weight: 600;
+  margin-bottom: 0;
+  position: relative;
+  line-height: 140%;
+  font-size: 34px;
+  &::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: #5e2ced;
+    background: linear-gradient(-45deg, $headingColor, #a485fd);
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin subHeadingColor {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  color: $headingColor;
+  line-height: 200%;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: $RobotoFontFamily;
+  overflow-x: hidden;
+}
+.top_header {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  background: $mainBackgroundColor;
+  .navbar {
+    .navbar-brand {
+      img {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+    .collapse {
+      ul {
+        li {
+          a {
+            color: $BlackColor;
+            text-transform: capitalize;
+            padding: 0 15px 0 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*************************************
+Home page styled
+************************************/
+.banner_creative {
+  background: $mainBackgroundColor;
+  padding: 0 0;
+  position: relative;
+  height: 100%;
+  min-height: 760px;
+  overflow: hidden;
+  @media(max-width){
+    height: auto;
+    min-height: auto;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    background: url("../src/assets/images/header-bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 76px;
+  }
+  .home_content_section {
+    padding: 250px 0 50px 0;
+    @media (max-width: 992px) {
+      padding: 120px 0 0 0;
+    }
+    h1 {
+      font-size: 42px;
+      color: $headingColor;
+      font-weight: bold;
+      margin: 0 0 30px 0;
+      line-height: 55px;
+      @media(max-width: 480px){
+        font-size: 30px;
+      }
+    }
+    p {
+      margin: 0;
+      line-height: 28px;
+      color: $fontColor;
+      max-width: 390px;
+      @media (max-width: 992px){
+        max-width: 100%;
+      }
+    }
+    button {
+      margin: 40px 0 0 0;
+      @include coloredButtons();
+    }
+  }
+  .home_img_section {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      max-width: 550px;
+      padding: 130px 0 0 0;
+      @media(max-width: 992px){
+        max-width: 400px;
+        padding: 10px 0 0 0;
+      }
+    }
+  }
+}
+.product_section {
+  padding: 70px 0;
+  .prodcuts_heading {
+    text-align: center;
+    span {
+      @include subHeadingColor();
+    }
+    h2 {
+      @include headingColor();
+    }
+    p {
+      margin: 30px auto 0;
+      max-width: 600px;
+    }
+  }
+  .product_img_section {
+    padding: 80px 0 0 0;
+    text-align: center;
+    img {
+      width: 100%;
+      transform: translateY(0px);
+      transition: $transitionEffect;
+      @media(max-width: 992px){
+        max-width: 400px;
+      }
+      &:hover {
+        transform: translateY(-8px);
+        transition: $transitionEffect;
+      }
+    }
+  }
+  .product_content_section {
+    padding: 60px 0 0 30px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        border-bottom: solid 1px #cccc;
+        margin: 0 0 20px 0;
+        padding: 0 0 5px 0;
+        &:last-child {
+          border-bottom: none;
+        }
+        .product_name {
+          display: flex;
+          align-items: center;
+          margin: 0 0 20px 0;
+          span {
+            background: #f1f1f1;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 15px 0 0;
+            transition: $transitionEffect;
+            i {
+              font-size: 25px;
+              color: $headingColor;
+            }
+          }
+          h3 {
+            font-size: 18px;
+            line-height: 26px;
+            color: $BlackColor;
+            margin: 0;
+            font-weight: bold;
+          }
+        }
+        p {
+          font-size: 16px;
+          color: $fontColor;
+        }
+        &:hover {
+          .product_name {
+            span {
+              background: $headingColor;
+              background: linear-gradient(-45deg, $headingColor #a485fd);
+              transition: $transitionEffect;
+              i {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+    button {
+      @include coloredButtons();
+    }
+  }
+}
+.compay_application {
+  padding: 60px 0;
+  background: $mainBackgroundColor;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -5px;
+    background: url("../src/assets/images/header-bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 76px;
+    transform: rotate(180deg);
+  }
+  .application_headings {
+    text-align: center;
+    margin: 0 0 40px 0;
+    h2 {
+      @include headingColor();
+      margin-top: 80px;
+    }
+  }
+  .applicaiton_cards {
+    background: #fff;
+    box-shadow: 0px 3px 10px 0px rgba(94, 44, 237, 0.08);
+    border-radius: 4px;
+    margin: 0px 0px 40px 0px;
+    position: relative;
+    z-index: 1;
+    padding: 55px 35px 45px 35px;
+    transition: $transitionEffect;
+    height: auto;
+    // &:hover {
+    //   transition: $transitionEffect;
+    //   background: $headingColor;
+    //   .applicaton_icons {
+    //     i {
+    //       color: #fff;
+    //     }
+    //   }
+    //   .box_circle {
+    //     background: #f1f1f1;
+    //   }
+    //   h4 {
+    //     color: #fff;
+    //   }
+    //   p {
+    //     color: #fff;
+    //   }
+    // }
+    .applicaton_icons {
+      position: relative;
+      padding: 20px 0;
+      font-size: 60px;
+      line-height: 1;
+      width: 100px;
+      text-align: right;
+      margin: 0 0 40px 0;
+      i {
+        color: $headingColor;
+      }
+    }
+    .box_circle {
+      left: 0;
+      bottom: 0;
+      width: 1.37em;
+      height: 1.37em;
+      position: absolute;
+      border-radius: 50%;
+      transition: all 0.8s ease-in-out;
+      background: #f1f1f1;
+      z-index: -1;
+    }
+    h4 {
+      font-size: 22px;
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+    p {
+      color: $fontColor;
+      font-size: 16px;
+    }
+  }
+  .view_all_buttons {
+    text-align: center;
+    margin: 40px 0 0 0;
+    button {
+      @include coloredButtons();
+    }
+  }
+}
+
+.testimonial_sections {
+  padding: 60px 0;
+  position: relative;
+  .testimonial_cricel_section {
+    position: absolute;
+    right: inherit;
+    top: 15%;
+    left: -15%;
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    border: 2px dashed rgba(94, 44, 237, 0.09);
+    animation: rotated 50s infinite linear;
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 50%;
+      left: -5px;
+      background: #ddabf6;
+      border-radius: 50%;
+    }
+    &::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 188px;
+      background: #ddabf6;
+      border-radius: 50%;
+    }
+  }
+  .testimonial_heading {
+    text-align: center;
+    span {
+      @include subHeadingColor();
+    }
+    h2 {
+      @include headingColor();
+    }
+  }
+  .testimonial_slider {
+    margin: 60px 0 0 0;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 35px;
+      right: 35px;
+      height: 200px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 12px 25px 0px rgba(0, 0, 0, 0.05);
+      z-index: -1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -55px;
+      left: 80px;
+      right: 80px;
+      height: 200px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 15px 22px 0px rgba(0, 0, 0, 0.03);
+      z-index: -3;
+    }
+    .fa-quote-left {
+      margin: 0 auto;
+      text-align: center;
+      position: absolute;
+      z-index: 9;
+      font-size: 60px;
+      left: 0;
+      right: 0;
+      top: 20px;
+      color: #f0f0f0;
+    }
+  }
+  .slider_section_testimonail {
+    background: #fff;
+    padding: 40px 30px;
+    box-shadow: 0px 16px 25px 0px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    max-height: 400px;
+    min-height: 400px;
+    @media(max-width: 767px){
+      max-height: 100%;
+    min-height: 100%;
+    }
+    .carousel-inner {
+      padding-top: 60px;
+      .carousel-item {
+        .testimonial {
+          margin: 0 0 30px 0;
+          font-size: 22px;
+          line-height: 44px;
+          font-style: italic;
+          color: #596982;
+          padding: 0 30px;
+        }
+        .overview {
+          text-align: center;
+          display: block;
+          color: #596982;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes rotated {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotated {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes rotated {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+/********************************
+Footer styled
+**********************************/
+footer {
+  padding: 60px 0;
+  box-shadow: 0 -1.2px 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 80px;
+  .footer-logo {
+    img {
+      max-width: 160px;
+    }
+    p {
+      font-size: 16px;
+      text-align: justify;
+      margin: 20px 0 30px 0;
+      color: #596982;
+      line-height: 30px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      li {
+        margin: 0 15px 0 0;
+        transition: $transitionEffect;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border: solid 1px $fontColor;
+          border-radius: 50%;
+          i {
+            color: $fontColor;
+          }
+        }
+        &:hover {
+          a {
+            transition: $transitionEffect;
+            border: solid 1px $headingColor;
+            text-decoration: none;
+            i {
+              color: $headingColor;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer_contact_us {
+    padding: 0 0 0 100px;
+    @media (max-width: 992px) {
+      padding: 40px 0 0 0;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 30px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: flex;
+        margin: 0 0 20px 0;
+        span {
+          margin: 0 15px 0 0;
+          color: $fontColor;
+          transition: $transitionEffect;
+          i {
+            font-size: 22px;
+          }
+        }
+        p {
+          margin: 0;
+          font-size: 16px;
+          color: $fontColor;
+        }
+        &:hover {
+          span {
+            color: $headingColor;
+            transition: $transitionEffect;
+          }
+        }
+      }
+    }
+  }
+  .footer_menus {
+    padding: 0 0 0 80px;
+    @media (max-width: 992px) {
+      padding: 40px 0 0 40px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 30px 0;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin: 0 0 10px 0;
+        a {
+          color: $fontColor;
+          cursor: pointer;
+          font-size: 16px;
+          transition: $transitionEffect;
+          &:hover {
+            transition: $transitionEffect;
+            color: $headingColor;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+.sub_footer_section {
+  width: 100%;
+  border-top: 1px solid #dee2e6;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 14px;
+    margin: 0;
+    color: $fontColor;
+  }
+}
+.fixedHeader.sticky {
+  box-shadow: $BoxShadowEffect;
+  background: #fff;
+  transition: $transitionEffect;
+}
+.navbar-toggler{
+  box-shadow: none;
+  outline: none;
+  background-color: $headingColor;
+  svg{
+    width: 30px;
+    fill: #fff;
+  }
+}
+.mobile_menus{
+  display: none;
+}
+@media(max-width: 1199px){
+  #navbarNavDropdown{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: $mainBackgroundColor;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    ul{
+      text-align: center;
+      margin: 40px 0 0 0;
+      li{
+        font-size: 25px;
+        margin: 0 0 20px 0;
+      }
+    }
+    .mobile_menus{
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      width: 93%;
+      // box-shadow: $BoxShadowEffect;
+      align-items: center;
+    padding: 0 20px;
+      .mobile_logo{
+        img{
+          max-width: 160px;
+        }
+      }
+      .mobile_menu_humber{
+        button{
+          background: $headingColor;
+          svg{
+            width: 25px;
+            fill: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
